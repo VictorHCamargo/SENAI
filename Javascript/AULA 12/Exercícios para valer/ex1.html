@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h1>Conversor de moeda</h1>
+    Moeda para ser convertida: <input type="number" id="valor" value="30.00"> <br>
+    Moeda para Conversão:<input type="text" id="conversor" value="$"> <br>
+    <button onclick="converter()">Converter</button>
+    <div id="resultado"></div>
+
+    <script>
+        function converter() {
+            let valor = parseFloat(document.getElementById("valor").value);
+            let convertora = document.getElementById("conversor").value;
+            let valorTrans;
+            switch (convertora) {
+                case "$":
+                    valorTrans = valor / 5.69;
+                    break;
+                case "€":
+                    valorTrans = valor / 6.47;
+                    break;
+                case "£":
+                    valorTrans = valor / 7.58;
+                    break;
+                default:
+                    valorTrans = "Moeda indefinida"
+            }
+            document.getElementById("resultado").innerHTML = `${valorTrans.toFixed(2)}${convertora}`
+        }
+    </script>
+</body>
+</html>
