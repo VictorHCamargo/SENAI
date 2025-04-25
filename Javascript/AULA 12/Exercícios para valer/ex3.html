@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Calculador de Área.</h1>
+    <label for="tipo">Escolha o tipo de figura:</label>
+    <select id="tipo">
+        <option value="1">Quadrado</option>
+        <option value="2">Triângulo</option>
+        <option value="3">Círculo</option>
+    </select>
+    <button onclick="calcularArea()">Calcular</button>
+    <h2 id="resultado"></h2>
+    <script>
+        function calcularArea() {
+            let quadrado;
+            let triangulo;
+            let circulo;
+            let tipo = parseInt(document.getElementById("tipo").value)
+            switch (tipo) {
+                case 1: 
+                    let lado = parseFloat(prompt("Digite o valor do lado de seu quadrado:"));
+                    quadrado = lado ** 2
+                    break;
+                case 2:
+                    let base = parseFloat(prompt("Digite o valor da base de seu triângulo:"));
+                    let altura = parseFloat(prompt("Digite o valor da altura de seu triângulo:"));
+                    triangulo = (base * altura)/ 2;
+                    break;
+                case 3:
+                    let raio = parseFloat(prompt("Digite o valor do raio de seu círculo:"));
+                    circulo = 3.14 * (raio **2);
+                    break;
+                default:
+                    alert("Você não adicionou algo válido");
+            }
+            alert(quadrado);
+            if (quadrado != undefined) {
+                document.getElementById("resultado").innerHTML = `O valor da área de seu quadrado é ${quadrado}m²`
+            } else if (triangulo != undefined) {
+                document.getElementById("resultado").innerHTML = `O valor da área de seu triângulo é ${triangulo}m²`
+            } else if (circulo != undefined) {
+                document.getElementById("resultado").innerHTML = `O valor da área de seu círculo é ${circulo}m²`
+            }
+        }
+    </script>
+</body>
+</html>
