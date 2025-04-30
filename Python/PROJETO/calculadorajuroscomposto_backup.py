@@ -22,7 +22,7 @@ def cdb():
     juros_mensais = ((1+juros)**(1/12))-1
     capital_final = (capital * (1+(juros_mensais/100))**tempo) + ((aporte * (((juros_mensais/100)+1)**tempo-1))/(juros_mensais/100))
     valor_rendido = capital - capital_final
-    impostos = valor_rendido
+    impostos = (valor_rendido * 
     print(f"Seu investimento/empréstimo com uma taxa de juros de {juros}% por ano \n Em um tempo de {tempo} meses, deu R${capital_final:.2f}")
     escolha = int(input('''
     Deseja continuar calculando:

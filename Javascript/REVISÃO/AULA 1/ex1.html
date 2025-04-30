@@ -6,9 +6,58 @@
     <title>Exercício 1 - Revisão</title>
 </head>
 <body>
-    <h1>Revisão 1 - Atividade Signos</h1> teste
+    <h1>Descubra o seu signo</h1> teste
     Digite o mês do seu signo (1 a 12): <input type="number" id="signo" min="1" max="12">
     <button onclick="mostrarsignos()">Ver Signo</button> <br>
-    
+    <p id="resultado"></p>
+    <script>
+        function mostrarsignos() {
+            let mes = parseInt(document.getElementById("signo").value);
+            let resultado;
+            let resultado_html = document.getElementById("resultado");
+            switch (mes){
+                case 1: 
+                resultado = "Capricórnio e Aquário";
+                break;
+                case 2: 
+                resultado = "Aquário e Peixes";
+                break;
+                case 3: 
+                resultado = "Peixes e Áries";
+                break;
+                case 4: 
+                resultado = "Áries e Touro";
+                break;
+                case 5: 
+                resultado = "Touro e Gêmeos";
+                break;
+                case 6: 
+                resultado = "Gêmeos e Câncer";
+                break;
+                case 7: 
+                resultado = "Câncer e Leão";
+                break;
+                case 8: 
+                resultado = "Leão e Virgem";
+                break;
+                case 9: 
+                resultado = "Virgem e Libra";
+                break;
+                case 10: 
+                resultado = "Libra e Escorpião";
+                break;
+                case 11: 
+                resultado = "Escorpião e Sargitário";
+                break;
+                case 12: 
+                resultado = "Sargitário e Capricórnio";
+                break;
+                default:
+                    resultado = "Mês inválido";
+                    break;
+            }
+            resultado_html.innerHTML = `Seu signo é: <strong>${resultado}</strong>`
+        }
+    </script>
 </body>
 </html>

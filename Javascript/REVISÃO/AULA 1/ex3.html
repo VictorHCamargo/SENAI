@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - Revisão</title>
+</head>
+<body>
+    <h1>Qual e a diferença??</h1>
+    Entre: <br>
+    1 - Mouse <br>
+    2 - PC <br>
+    3 - Mesa <br>
+    <input type="number" id="signo" min="1" max="4">
+    <button onclick="mostrarsignos()">Ver Significado</button> <br>
+    <p id="resultado"></p>
+    <script>
+        function mostrarsignos() {
+            let mes = parseInt(document.getElementById("signo").value);
+            let resultado;
+            let resultado_html = document.getElementById("resultado");
+            switch (mes){
+                case 1: 
+                resultado = "Fita cassete é um meio analógico de armazenamento de áudio em fita magnética,<br> muito usado entre as décadas de 1970 e 1990.";
+                break;
+                case 2: 
+                resultado = "DVD (Digital Versatile Disc) é um disco óptico usado para armazenar dados,<br> vídeos e músicas com capacidade maior que a de um CD.";
+                break;
+                case 3: 
+                resultado = "CD (Compact Disc) é um disco óptico usado para armazenar dados digitais,<br> como músicas, vídeos ou arquivos de computador.";
+                break;
+                default:
+                    resultado = "Índice Inválido";
+                    break;
+            }
+            resultado_html.innerHTML = `Significado é: <strong>${resultado}</strong>`
+        }
+    </script>
+</body>
+</html>
