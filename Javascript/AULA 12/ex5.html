@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    Classificação Etária: <input type="text" id="classificacao" value="14"> <br>
+    <button onclick="exibirCategoria()">Exibir Categoria</button>
+    <div id="resultado"></div>
+    <script>
+        function exibirCategoria() {
+            let idade = document.getElementById("classificacao").value;
+            let categoria;
+            switch (idade) {
+                case "Livre":
+                    categoria = "Livre para todas as idades";
+                    break;
+                case "10":
+                case "12":
+                    categoria = "Recomendado para maiores de 10 e 12 anos";
+                    break;
+                case "14":
+                    categoria = "Recomendado para maiores de 14 anos";
+                    break;
+                case "16":
+                    categoria = "Recomendado para maiores de 16 anos";
+                    break;
+                case "18":
+                    categoria = "Recomendado para maiores de 18 anos";
+                    break;
+                default:
+                    categoria = "Não existe essa categoria"
+            }
+            document.getElementById("resultado").innerHTML = `${categoria}`
+        }
+    </script>
+</body>
+</html>
