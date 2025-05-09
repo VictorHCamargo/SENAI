@@ -7,6 +7,7 @@ function mostrarSecao(secao) {
     document.getElementById("consulta").classList.add("hidden");
     document.getElementById("alterar").classList.add("hidden");
     document.getElementById("emprestimo").classList.add("hidden");
+    document.getElementById("venda").classList.add("hidden");
     //Mostra a seção selecionada
     document.getElementById(secao).classList.remove("hidden");
 }
@@ -26,9 +27,57 @@ function adicionarLivro() {
     }
 }
 function buscarLivro() {
-    const busca = document.getElementById("busca").value.toLowerCase();
-    const resultados = biblioteca.filter((livro) => livro.titulo.toLowerCase().includes(busca));
+    const busca = document.getElementById("busca").value.tolowerCase();
+    const resultados = biblioteca.filter((livro) => livro.titulo.tolowerCase().includes(busca));
     atualizarLista(resultados);
+}
+let emprestimos = [];
+function realizarEmprestimo(){
+    const titulo = document.getElementById("emprestimotitulo").value;
+    const nomeUsuario = document.getElementById("emprestimousuario").value;
+    if (titulo && nomeUsuario) {
+        const livro = biblioteca.find(
+            (livro) => livro.titulo.toLowerCase() === titulo.toLowerCase()
+        );
+        if (livro) {
+            emprestimos.push({titulo: livro.titulo, usuario: nomeUsuario});
+            atualizarListaEmprestimo();
+            alert("Empréstimo realizado com sucesso!");
+            document.getElementById("emprestimotitulo").value = "";
+            document.getElementById("emprestimousuario").value = "";
+        } else {
+            alert("Livro não encontrado na Biblioteca.");
+        }
+    } else {
+        alert("Por favor, preencha todos os campos.")
+    }
+}
+function atualizarListaEmprestimo() {
+    const ListaEmprestimos = document.getElementById("lista-emprestimo");
+    ListaEmprestimos.innerHTML = "";
+    emprestimos.forEach((emprestimo) => {
+        const item = document.createElement("li");
+        item.textContent = `Livro: ${emprestimo.titulo} - Usuário: ${emprestimo.usuario}`
+        ListaEmprestimos.appendChild(item);
+    })
+}
+// --- Registro de Vendas ---
+let vendas = [] // Array para armazenar as vendas
+function registrarVenda(){
+    const titulo = document.getElementById(`venda-titulo`).value;
+    const preco = document.getElementById(`venda-preco`).value;
+    const comprador = document.getElementById(`venda-comprador`).value;
+    if(titulo && preco && comprador){
+        const listaVendas = document.getElementById(`lista-vendas`);
+        const item = document.createElement(`li`);
+        item.textContent = `Título: ${titulo}, Preço: R$${preco}, Comprador: ${comprador}`;
+        listaVendas.appendChild(item);
+        // Adicionar venda ao array de vendas
+        vendas.push({titulo,preco,comprador});
+        // limpar os campos
+        document.getElementById(`venda-titulo`).value = '';
+        document.getElementById(`venda-preco`).value = '';
+    }
 }
 function buscarLivroParaAlterar() {
     const busca = document.getElementById("busca-alterar").value.toLowerCase();
@@ -61,36 +110,8 @@ function alterarLivro() {
         }
     }
 }
-let emprestimos = [];
-function realizarEmprestimo(){
-    const titulo = document.getElementById("emprestimotitulo").value;
-    const nomeUsuario = document.getElementById("emprestimousuario").value;
-    if (titulo && nomeUsuario) {
-        const livro = biblioteca.find(
-            (livro) => livro.titulo.toLowerCase() === titulo.toLowerCase()
-        );
-        if (livro) {
-            emprestimos.push({titulo: livro.titulo, usuario: nomeUsuario});
-            atualizarListaEmprestimo();
-            alert("Empréstimo realizado com sucesso!");
-            document.getElementById("emprestimotitulo").value = "";
-            document.getElementById("emprestimousuario").value = "";
-        } else {
-            alert("Livro não encontrado na Biblioteca.");
-        }
-    } else {
-        alert("Por favor, preencha todos os campos.")
-    }
-}
-function atualizarListaEmprestimo() {
-    const ListaEmprestimos = document.getElementById("lista-emprestimo");
-    ListaEmprestimos.innerHTML = "";
-    emprestimos.forEach((emprestimo) => {
-        const item = document.createElement("li");
-        item.textContent = `Livro: ${emprestimo.titulo} - Usuário: ${emprestimo.usuario}`
-        ListaEmprestimos.appendChild(item);
-    })
-}
+
+
 function atualizarLista(lista = biblioteca) {
     const tabela = document.getElementById("lista-livros");
     tabela.innerHTML = "";
