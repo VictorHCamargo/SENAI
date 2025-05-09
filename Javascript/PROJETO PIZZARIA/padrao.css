@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+      background: linear-gradient(135deg, #ff6a00, #ff0000);
+      font-family: 'Segoe UI', sans-serif;
+      color: red;
+}
+header {
+    background-color: rgba(255, 69, 0, 0.9);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #800000;
+}
+.container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.75%;
+}
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.menu button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background 0.3s;
+}
+
