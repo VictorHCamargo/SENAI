@@ -77,7 +77,42 @@ function registrarVenda(){
         // limpar os campos
         document.getElementById(`venda-titulo`).value = '';
         document.getElementById(`venda-preco`).value = '';
+        document.getElementById(`venda-comprador`).value = '';
+    } else {
+        alert("Por favor, preencha todos os campos!");
     }
+}
+// Relatório de Vendas
+function gerarRelatorioVendas(){
+    const tabelaRelatorio = document.getElementById(`tabela-relatorio-vendas`);
+    tabelaRelatorio.innerHTML = ''; //Limpar tabela
+    if (vendas.length === 0){
+        alert('Nenhuma venda registrada.');
+        return;
+    }
+    let totalVendas = 0;
+    if (totalVendas.length === 0 ) {
+        alert("Valor de venda não registrado!");
+        return;
+    }
+    vendas.forEach((venda) =>{
+        const linha = document.getElementById('tr');
+        linha.innerHTML = `
+        <td>${venda.titulo}</td>
+        <td>R$${parseFloat(venda.preco).toFixed(2)}</td>
+        <td>${venda.comprador}</td>`;
+        tabelaRelatorio.appendChild(linha);
+        // Somar o preço ao total de vendas
+        totalVendas += parseFloat(venda.preco);
+    });
+    const linhaTotal = document.createElement('tr');
+    linhaTotal.innerHTML = `
+        <td><strong>Total</strong></td>
+        <td><strong>R$${totalVendas.toFixed(2)}</strong></td>
+        <td></td>`
+    tabelaRelatorio.appendChild(linhaTotal);
+    //Exibir a área do Relatório
+    document.getElementById('relatorio-vendas').classList.remove('hidden');
 }
 function buscarLivroParaAlterar() {
     const busca = document.getElementById("busca-alterar").value.toLowerCase();
