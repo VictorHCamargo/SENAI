@@ -7,15 +7,111 @@
     <title>Pizzaria Abençoada</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <h1>Seja Bem-Vindo à Pizzaria Abençoada</h1>
-        <div class="botoes">
             <div class="menu">
-                <button onclick="cadastro()">Realizar Cadastro</button>
-                <button onclick="login()">Fazer Log-in</button>
-                <button onclick="funcionario()">Aba de Funcionários</button>
+                <button onclick="mostrarSecao(`cadastro`)">Realizar Cadastro</button>
+                <button onclick="mostrarSecao(`login`)">Fazer Log-in</button>
+                <button onclick="mostrarSecao(`funcionario`)">Aba de Funcionários</button>
+            </div>
+        <div id="cadastro" class="hidden">
+            <div class="mostrar">
+            <div class="forma-input">
+                <label for="cadastro_nome">Digite o seu nome <strong>completo</strong>:</label>
+                <input id="cadastro_nome" type="text" placeholder="Ex.:Victor Hugo Camargo">
+            </div>
+            <div class="forma-input">
+                <label for="cadastro_endereco">Digite seu CEP:</label>
+                <input id="cadastro_endereco" type="number" placeholder="Ex.:xxxxxxxx">
+            </div>
+            <div class="forma-input">
+                <label for="cadastro_senha">Digite sua Senha:</label>
+                <input id="cadastro_senha" type="text" placeholder="Ex.:@BcD3Fg">
+            </div>
+            <div class="forma-input">
+                <label for="cadastro_confirsenha">Confirme sua Senha:</label>
+                <input id="cadastro_confirsenha" type="text" placeholder="Ex.:@BcD3Fg">
+            </div>
+            <button onclick="realizarCadastro()">Criar conta</button>
+            <p id="resul_cadastro_cliente"></p>
+            </div>  
+        </div>
+        <!--Área de Login-->
+        <div id="login" class="hidden">
+            <div class="mostrar">
+                <div class="forma-input">
+                    <label for="login">Digite o seu nome <strong>completo</strong>:</label>
+                    <input id="login_nome" type="text" placeholder="Ex.:Victor Hugo Camargo">
+                </div>
+                <div class="forma-input">
+                    <label for="login_senha">Digite sua Senha:</label>
+                    <input id="login_senha" type="text" placeholder="Ex.:@BcD3Fg">
+                </div>
+                <button onclick="realizarLogin()">Entrar na conta</button>
+                <p id="resul_login_cliente"></p>
+            </div>
+        </div>
+        <!--Área do funcionário-->
+        <div id="funcionario" class="hidden">
+            <div class="mostrar">
+                <div class="forma-input">
+                    <label for="funcionario_code">Adicione seu código de funcionário:</label>
+                    <input type="number" id="funcionario_code" placeholder="Adicione o código">
+                </div>
+                <button onclick="verificarCode()">Verificar código</button>
+                <div id="code">
+                    <button onclick="mostrarCode()">Gerar Code_Teste</button>
+                    <p id="resul_codigo"></p>
+                    <!--Área que vai aparecer o codigo do funcinário para acessar-->
+                </div>
             </div>
         </div>
     </div>
+    <div id="funcionariomenu" class="hidden">
+            <div class="menu">
+                <button onclick="mostrarSecaoFun(`cadastroPizza`)">Cadastro Pizzas</button>
+                <button onclick="mostrarSecaoFun(`consultaPizza`)">Consulta Pizzas</button>
+            </div>
+
+        <div id="cadastroPizza" class="hidden">
+            <div class="mostrar">
+                <div class="forma-input">
+                <label for="nome_pizza">Nome da Pizza:</label>
+                <input id="nome_pizza" type="text">
+            </div>
+            <div class="forma-input">
+                <label for="ingridientes">Adicione os ingridientes:</label>
+                <input type="text" id="ingridientes">
+            </div>
+            <div class="forma-input">
+                <label for="preco">Adicione o Preço da Pizza:</label>
+                <input type="number" id="preco">
+            </div>
+            <button onclick="cadastroPizza()">Cadastrar</button>
+            <p id="resul_cadastro_pizza"></p>
+            </div>
+        </div>
+        <div id="consultaPizza" class="hidden">
+            <div class="forma-input">
+                <label for="consulta">Consultar Pizzas por Nome</label>
+                <input type="text" id="consulta" onchange="consultar()">
+            </div>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>ingridientes</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-pizza">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

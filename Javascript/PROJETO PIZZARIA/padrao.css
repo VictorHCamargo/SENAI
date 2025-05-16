@@ -1,23 +1,29 @@
 body {
-    background-color: black;
+    background-color: rgb(192, 73, 10);
     color: red;
 }
 h1 {
+    text-align: center;
     font-size: 2.5em;
     margin-bottom: 30px;
     text-shadow: 2px 2px #800000;
 }
-.container {
+#container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.75%;
+}
+#funcionariomenu {
     background-color: white;
     border-radius: 15px;
     padding: 0.75%;
 }
 .menu {
-    display: grid;
+    display: inline-flex;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
     gap: 20px;
     width: 100%;
-    max-width: 800px;
 }
 
 .menu button {
@@ -31,4 +37,26 @@ h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: transform 0.2s, background 0.3s;
 }
+.hidden {
+    display: none;
+}
+.forma-input {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    font-family: Arial, sans-serif;
+}
 
+.forma-input label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.forma-input input {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
