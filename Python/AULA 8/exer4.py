@@ -1,8 +1,7 @@
 quantidade = int(input("Digite a quantidade de pessoas do grupo:"))
-woman = man = idade_woman = idade_man = contador = 0
-while contador < quantidade:
-    contador += 1
-    sexo = str(input(f"Qual e o sexo da pessoa {contador}? (feminino/masculino)"))
+woman = man = idade_woman = idade_man = 0
+for number in range(1,quantidade):
+    sexo = str(input(f"Qual e o sexo da pessoa {number}? (feminino/masculino)"))
     if sexo == "feminino":
         idade = int(input("Digite sua idade:"))
         idade_woman += idade
