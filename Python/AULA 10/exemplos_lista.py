@@ -1,0 +1,23 @@
+lista = [1,2,3,4,5]
+print(lista)
+lista.append(2)
+print(lista)
+lista.insert(2,-3)
+print(lista)
+lista.remove(4)
+print(lista)
+lista.sort()
+print(lista)
+lista.reverse()
+print(lista)
+qnt = lista.count(5)
+print(qnt)
+exc = lista.pop()
+print(lista)
+print(exc)
+del lista[2]
+print(lista)
+del lista[2:5]
+print(lista)
+lista.clear()
+print(lista)
