@@ -9,8 +9,11 @@ function exibirMensagem(mensagem,tipo){
         texto.classList.add("hidden");
     }, 3000);
 }
-let clientes = [];
+let dados = {};
 let pizza = [];
+function cadastrar() {
+    
+}
 function validarLogin() {
     const nome = document.getElementById("usuario").value;
     const senha = document.getElementById("senha").value;
