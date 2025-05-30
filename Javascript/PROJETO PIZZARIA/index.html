@@ -8,11 +8,13 @@
 </head>
 <body>
     <div id="container">
-            <div class="menu">
-                <button onclick="mostrarSecaoFun(`cadastroPizza`)">Cadastro Pizzas</button>
-                <button onclick="mostrarSecaoFun(`consultaPizza`)">Consulta Pizzas</button>
-            </div>
-
+        <div class="menu">
+            <button onclick="mostrarSecaoFun(`cadastroPizza`)">Cadastro Pizzas</button>
+            <button onclick="mostrarSecaoFun(`consultaPizza`)">Consulta Pizzas</button>
+            <button onclick="mostrarSecaoFun(`alterarPizzas`)">Alterar Pizzas</button>
+            <button onclick="mostrarSecaoFun(`vendas`)">Compras</button>
+            <button onclick="gerarRelatorio()">Relatórios de Vendas</button>
+        </div>
         <div id="cadastroPizza" class="hidden">
             <div class="forma-input">
                 <label for="nome_pizza">Nome da Pizza:</label>
@@ -48,6 +50,55 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div id="alterarPizzas" class="hidden">
+            <input type="text" id="busca-alterar" placeholder="Pizza que deseja alterar" onchange="busca_alterar_pizza()">
+            <div id="form-alterar" class="hidden">
+                <div class="forma-input">
+                    <label for="nova_pizza">Adicione o novo Nome da Pizza:</label>
+                    <input id="nova_pizza" type="text">
+                </div>
+                <div class="forma-input">
+                    <label for="novo_ingrediente">Adicione os novos ingridientes:</label>
+                    <input id="novo_ingrediente" type="text">
+                </div>
+                <div class="forma-input">
+                    <label for="novo_preco">Adicione o novo preço:</label>
+                    <input id="novo_preco" type="number">
+                </div>
+                <p><button onclick="alteraPizzas()">Alterar Pizza</button></p>
+            </div>
+        </div>
+        <div id="vendas" class="hidden">
+            <div class="forma-input">
+                <label for="pizza_vendida">Nome da pizza que deseja comprar:</label>
+                <input id="pizza_vendida" type="text" onchange="buscar_venda()">
+            </div>
+            <div id="form-venda" class="hidden">
+                <div id="lista-vendas">
+
+                </div>
+                <div class="forma-input">
+                <label for="nome_cliente">Nome do comprador:</label>
+                <input id="nome_cliente" type="text">
+                </div>
+                <p><button onclick="venda()">Realizar Compra</button></p>
+                <ul id="lista-de-vendas">
+
+                </ul>
+            </div>
+            <div id="relatorio-vendas" class="hidden">
+            <table>
+                <thead>
+                    <th>Nome da Pizza</th>
+                    <th>Comprador</th>
+                    <th>Preço</th>
+                </thead>
+                <tbody id="tabela-relatorio-vendas">
+
+                </tbody>
+            </table>
+        </div>
         </div>
     </div>
     <script src="script.js"></script>
