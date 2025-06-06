@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="padrao.css">
+    <title>Pizzaria Abençoada</title>
+</head>
+<body>
+    <div id="container">
+        <div class="menu">
+            <button onclick="mostrarSecao(`consultaPizza`)">Cardapio</button>
+            <button onclick="mostrarSecao(`vendas`)">Carrinho</button>
+        </div>
+        <div id="consultaPizza" class="hidden">
+            <div class="forma-input">
+                <label for="consulta">Consultar Pizzas por Nome</label>
+                <input type="text" id="consulta" oninput="consultar()">
+            </div>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>ingridientes</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-pizza">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

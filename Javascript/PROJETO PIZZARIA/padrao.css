@@ -1,40 +1,122 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff8e1; /* tom quente e leve */
+    margin: 0;
+    padding: 0;
+    color: #4e342e;
+    background-image: url('logo-pizzaria.png'); /* substitua pelo nome real da logo */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;
+    background-attachment: fixed;
+    opacity: 0.95;
+}
 
-h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px #800000;
-}
 #container {
-    background-color: white;
-    border-radius: 15px;
-    padding: 0.75%;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: rgba(255, 250, 240, 0.95);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 112, 67, 0.25);
+    backdrop-filter: blur(4px);
 }
-#mostrar {
-    background-color: white;
-}
-.hidden {
-    display: none;
-}
-.forma-input {
-    margin-top: 10px;
+
+.menu {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 50%;
-    font-family: Arial, sans-serif;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.menu button {
+    background-color: #ffab91;
+    border: none;
+    padding: 12px 20px;
+    color: #4e342e;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.menu button:hover {
+    background-color: #ff8a65;
+}
+
+.forma-input {
+    margin: 15px 0;
 }
 
 .forma-input label {
-    font-size: 18px;
+    display: block;
+    margin-bottom: 6px;
     font-weight: bold;
+    color: #e64a19;
 }
 
 .forma-input input {
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffe0b2;
+    border-radius: 6px;
+    background-color: #fff3e0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ffab91;
+    color: #4e342e;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff7043;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(255, 138, 101, 0.2);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ffe0b2;
+    text-align: left;
+}
+
+thead {
+    background-color: #ffe0b2;
+    color: #bf360c;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fffde7;
+}
+
+.hidden {
+    display: none;
+}
+
+.amostrar {
+    background-color: #fff8e1;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(255, 183, 77, 0.1);
 }
 .sucesso {
     color: green;
