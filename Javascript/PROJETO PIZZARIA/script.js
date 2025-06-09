@@ -80,7 +80,11 @@ function validarLogin() {
 
 // Lista de pizzas disponíveis
 let pizza = [];
-
+function mostrarSecao(secao) {
+    document.getElementById(`consultaPizza`).classList.add("hidden");
+    document.getElementById(`vendas`).classList.add("hidden");
+    document.getElementById(secao).classList.remove("hidden")
+}
 // Mostra apenas a seção desejada (Cadastro, Consulta, Alterar ou Vendas)
 function mostrarSecaoFun(secao) {
     document.getElementById(`cadastroPizza`).classList.add("hidden");
@@ -166,18 +170,22 @@ let vendido = [];
 
 // Finaliza a compra e registra os pedidos
 function venda() {
-    const nome_comprador = document.getElementById("nome_comprador").value;
+    if (vendas.length == 0) {
+        alert("nenhuma pizza adicionada")
+    } else {
+        const nome_comprador = document.getElementById("nome_comprador").value;
 
-    // Adiciona cada item comprado na lista de vendidos
-    vendas.forEach((venda) => {
-        const nome = venda.nome;
-        const preco = venda.preco;
-        vendido.push({nome, nome_comprador, preco});
-    });
-    vendas = [];
-    // Limpa a tabela de itens selecionados
-    document.getElementById("tabela-venda").innerHTML = "";
-    exibirMensagem("form-venda", "Pedido comprado com sucesso!!!", "sucesso");
+        // Adiciona cada item comprado na lista de vendidos
+        vendas.forEach((venda) => {
+            const nome = venda.nome;
+            const preco = venda.preco;
+            vendido.push({nome, nome_comprador, preco});
+        });
+        vendas = [];
+        // Limpa a tabela de itens selecionados
+        document.getElementById("tabela-venda").innerHTML = "";
+        exibirMensagem("form-venda", "Pedido comprado com sucesso!!!", "sucesso");
+    }
 }
 
 // Adiciona uma pizza ao carrinho de compra
