@@ -119,8 +119,10 @@ tbody tr:nth-child(even) {
     box-shadow: 0 0 10px rgba(255, 183, 77, 0.1);
 }
 .sucesso {
+    background-color: rgb(178, 233, 162);
     color: green;
 }
 .erro {
+    background-color: rgb(243, 160, 160);
     color: red;
 }

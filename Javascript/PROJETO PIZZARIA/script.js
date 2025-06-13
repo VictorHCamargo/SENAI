@@ -136,6 +136,7 @@ function busca_alterar_pizza() {
         document.getElementById("nova_pizza").value = pizza_alterar.nome;
         document.getElementById("novo_ingrediente").value = pizza_alterar.ingridientes;
         document.getElementById("novo_preco").value = pizza_alterar.preco;
+        document.getElementById("busca-alterar").value = "";
     } else {
         exibirMensagem("alterarPizzas", "Não há nenhuma pizza cadastrada", "erro");
     }
@@ -192,6 +193,7 @@ function venda() {
 function comprar(nome_venda, ingridientes_venda, preco_venda) {
     vendas.push({nome: nome_venda, ingridientes: ingridientes_venda, preco: preco_venda});
     atualizarLista_venda(); // Atualiza a lista de compras
+    alert("Pizza adicionada ao carrinho com sucesso.")
 }
 
 // Atualiza a tabela de pizzas no carrinho
@@ -263,7 +265,7 @@ function atualizarLista(lista = pizza) {
         <td>${pizzas.nome}</td>
         <td>${pizzas.ingridientes}</td>
         <td>R$${pizzas.preco}</td>
-        <td><button onclick="comprar('${pizzas.nome}','${pizzas.ingridientes}','${parseFloat(pizzas.preco)}')">Comprar esta pizza</button></td>`;
+        <td><button onclick="comprar('${pizzas.nome}','${pizzas.ingridientes}','${parseFloat(pizzas.preco)}')">Comprar</button></td>`;
         tabela.appendChild(linha);
     });
 }
