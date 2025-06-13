@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #4e342e;
-    background-image: url('logo-pizzaria.png'); /* substitua pelo nome real da logo */
+    background-image: url('Logo\ pizza.png'); /* substitua pelo nome real da logo */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 400px;
@@ -12,10 +12,10 @@ body {
     opacity: 0.95;
 }
 
-#container {
+.container {
     max-width: 960px;
     margin: 0 auto;
-    background-color: rgba(255, 250, 240, 0.95);
+    background-color: rgb(255, 250, 240);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(255, 112, 67, 0.25);

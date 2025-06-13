@@ -7,7 +7,7 @@
     <title>Pizzaria Abençoada</title>
 </head>
 <body>
-    <div id="container">
+    <div class="container">
         <div class="menu">
             <button onclick="mostrarSecaoFun(`cadastroPizza`)">Cadastro Pizzas</button>
             <button onclick="mostrarSecaoFun(`consultaPizza`)">Consulta Pizzas</button>
@@ -31,8 +31,7 @@
             <button onclick="cadastroPizza()">Cadastrar</button>
             </div>
         </div>
-        <div id="alterarPizzas" class="hidden amostrar">
-            <div class="amostrar">
+        <div id="alterarPizzas" class="hidden">
                 <div class="forma-input">
                     <input type="text" id="busca-alterar" placeholder="Pizza que deseja alterar" onchange="busca_alterar_pizza()">
                 </div>
@@ -51,7 +50,6 @@
                     </div>
                     <p><button onclick="alteraPizzas()">Alterar Pizza</button></p>
                 </div>
-            </div>
         </div>
         <div id="consultaPizza" class="hidden">
             <div class="forma-input">
@@ -73,8 +71,7 @@
                 </table>
             </div>
         </div>
-        <div id="vendas" class="hidden amostrar">
-            <div class="amostrar">
+        <div id="vendas" class="hidden">
                 <div class="tabela">
                     <table>
                         <thead>
@@ -106,10 +103,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
-
         </div>
-        
     </div>
     <script src="script.js"></script>
 </body>
